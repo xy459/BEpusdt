@@ -518,7 +518,7 @@
         var NET_LABEL = { bsc: 'BSC (BEP20)', tron: 'TRON (TRC20)', solana: 'Solana (SPL)', ethereum: 'Ethereum (ERC20)', polygon: 'Polygon', base: 'Base', arbitrum: 'Arbitrum', aptos: 'Aptos', xlayer: 'X Layer', ton: 'TON' };
         var niceNet = NET_LABEL[netKey] || netName;
         var elNetIcon = document.getElementById('payNetIcon');
-        if (elNetIcon && netKey) elNetIcon.src = netIcon(netKey);
+        if (elNetIcon && netKey) elNetIcon.src = '/checkout/official/assets/web3icons/network/' + netKey.toLowerCase() + '.svg';
         var elNetName = document.getElementById('payNetName');
         if (elNetName) elNetName.textContent = niceNet;
         var elTipNet = document.getElementById('tipNetwork');
