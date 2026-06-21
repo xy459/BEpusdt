@@ -508,22 +508,21 @@
         var netName = (d.network && d.network.name) ? d.network.name : (d.selected_payment ? d.selected_payment.token_net_name : '');
         var amount = d.actual_amount || '--';
         window._qrAmount = amount;
-        document.getElementById('orderMoneyQ').textContent = d.money || '--';
-        document.getElementById('orderFiatQ').textContent = d.fiat || '';
+        var elMoneyQ = document.getElementById('orderMoneyQ');
+        if (elMoneyQ) elMoneyQ.textContent = d.money || '--';
+        var elFiatQ = document.getElementById('orderFiatQ');
+        if (elFiatQ) elFiatQ.textContent = d.fiat || '';
         document.getElementById('payAmountQ').textContent = amount + ' ' + currency;
-        document.getElementById('payNetworkQ').textContent = _t('networkPrefix', '区块网络 · ') + netName;
-        // 顶部链/币 logo 强调 + 转账说明动态文案
+        // 网络强调(logo + 规范网络名) + 转账说明动态文案
         var netKey = (d.network && d.network.network) ? d.network.network : '';
+        var NET_LABEL = { bsc: 'BSC (BEP20)', tron: 'TRON (TRC20)', solana: 'Solana (SPL)', ethereum: 'Ethereum (ERC20)', polygon: 'Polygon', base: 'Base', arbitrum: 'Arbitrum', aptos: 'Aptos', xlayer: 'X Layer', ton: 'TON' };
+        var niceNet = NET_LABEL[netKey] || netName;
         var elNetIcon = document.getElementById('payNetIcon');
         if (elNetIcon && netKey) elNetIcon.src = netIcon(netKey);
-        var elTokIcon = document.getElementById('payTokenIcon');
-        if (elTokIcon) elTokIcon.src = tokenIcon(currency);
-        var elChainName = document.getElementById('payChainName');
-        if (elChainName) elChainName.textContent = netName;
-        var elTokenName = document.getElementById('payTokenName');
-        if (elTokenName) elTokenName.textContent = currency;
+        var elNetName = document.getElementById('payNetName');
+        if (elNetName) elNetName.textContent = niceNet;
         var elTipNet = document.getElementById('tipNetwork');
-        if (elTipNet) elTipNet.textContent = netName;
+        if (elTipNet) elTipNet.textContent = niceNet;
         var elTipTok = document.getElementById('tipToken');
         if (elTipTok) elTipTok.textContent = currency;
         document.getElementById('orderIdQ').textContent = d.order_id || '--';

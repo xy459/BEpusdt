@@ -113,17 +113,7 @@
     </div>
 </div>
 <div class="checkout-card" id="paymentStage" style="display:none;">
-    <div class="card-header">
-        <div class="chain-head">
-            <img id="payNetIcon" class="chain-head-icon" alt="" />
-            <div class="chain-head-text">
-                <span class="chain-head-name" id="payChainName">--</span>
-                <span class="chain-head-token">
-                    <img id="payTokenIcon" class="chain-head-token-ic" alt="" />
-                    <span id="payTokenName"></span>
-                </span>
-            </div>
-        </div>
+    <div class="card-header" style="justify-content:flex-end;">
         <a id="helpBtnQ" href="#" class="help-btn" data-i18n="[title]helpTitle" title="联系客服" target="_blank">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="12" cy="12" r="10"/>
@@ -133,10 +123,7 @@
         </a>
     </div>
     <div class="amount-block">
-        <div class="amount-fiat">
-            <span id="orderMoneyQ">--</span>&nbsp;<span id="orderFiatQ">--</span>
-        </div>
-        <div class="amount-crypto-row">
+        <div class="amount-crypto-row" style="margin-top:6px;">
             <span class="amount-crypto-value" id="payAmountQ"></span>
             <span class="copy-trigger" id="copyAmountQBtn" data-i18n="[title]copyAmountTitle" title="复制金额">
                 <span class="copy-trigger-icon" id="copyAmountQIcon">
@@ -147,8 +134,10 @@
                 </span>
             </span>
         </div>
-        <div class="amount-network-line">
-            <span class="network-tag" id="payNetworkQ">--</span>
+        <div class="use-net">
+            <span class="use-net-prefix">务必使用</span>
+            <img id="payNetIcon" class="use-net-icon" alt="" />
+            <b class="use-net-name" id="payNetName">--</b>
         </div>
     </div>
     <div class="amount-warning">
@@ -158,13 +147,7 @@
         </svg>
         <span>到账金额必须与上方显示金额<b>完全一致</b>，多付少付均无法自动到账</span>
     </div>
-    <div style="padding: 12px 24px 0; display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;">
-        <div class="fee-notice">
-            <svg viewBox="0 0 16 16" fill="currentColor">
-                <path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm.75 10.5h-1.5v-5h1.5v5zm0-6.5h-1.5V3.5h1.5V5z"/>
-            </svg>
-            <span data-i18n="feeNotice">请严格按照数额进行付款</span>
-        </div>
+    <div style="padding: 12px 24px 0; display:flex; align-items:center; justify-content:flex-end; gap:12px; flex-wrap:wrap;">
         <div class="timer-badge-wrap">
             <div class="timer-badge">
                 <span class="timer-label" data-i18n="timerLabel">到期时间</span>
