@@ -648,3 +648,5 @@ body {
 }
 .pay-tips p:last-child { margin-bottom: 0; }
 .pay-tips b { color: #92600a; font-weight: 800; }
+.copy-trigger { display: inline-flex; align-items: center; gap: 3px; }
+.copy-trigger-text { font-size: 12px; font-weight: 600; color: var(--color-accent); }
