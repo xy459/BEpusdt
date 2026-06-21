@@ -512,6 +512,20 @@
         document.getElementById('orderFiatQ').textContent = d.fiat || '';
         document.getElementById('payAmountQ').textContent = amount + ' ' + currency;
         document.getElementById('payNetworkQ').textContent = _t('networkPrefix', '区块网络 · ') + netName;
+        // 顶部链/币 logo 强调 + 转账说明动态文案
+        var netKey = (d.network && d.network.network) ? d.network.network : '';
+        var elNetIcon = document.getElementById('payNetIcon');
+        if (elNetIcon && netKey) elNetIcon.src = netIcon(netKey);
+        var elTokIcon = document.getElementById('payTokenIcon');
+        if (elTokIcon) elTokIcon.src = tokenIcon(currency);
+        var elChainName = document.getElementById('payChainName');
+        if (elChainName) elChainName.textContent = netName;
+        var elTokenName = document.getElementById('payTokenName');
+        if (elTokenName) elTokenName.textContent = currency;
+        var elTipNet = document.getElementById('tipNetwork');
+        if (elTipNet) elTipNet.textContent = netName;
+        var elTipTok = document.getElementById('tipToken');
+        if (elTipTok) elTipTok.textContent = currency;
         document.getElementById('orderIdQ').textContent = d.order_id || '--';
         document.getElementById('walletAddress').textContent = d.token || d.address || '--';
         var addr = document.getElementById('addressLabelQ');
