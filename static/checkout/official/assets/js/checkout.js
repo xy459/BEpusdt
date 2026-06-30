@@ -13,9 +13,8 @@
     var cdTimer = null, stTimer = null;
 
     function detectLang() {
-        try {
-            return ((navigator.language || navigator.userLanguage || 'en').toLowerCase().indexOf('zh') === 0) ? 'zh' : 'en';
-        } catch (e) { return 'en'; }
+        // 收银台固定使用中文，不再跟随浏览器语言
+        return 'zh';
     }
 
     function initI18n() {
